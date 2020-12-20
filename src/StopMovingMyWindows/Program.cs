@@ -14,9 +14,11 @@ namespace StopMovingMyWindows
         [STAThread]
         public static void Main()
         {
+            WindowManager.GetWindowStates();
             Application.EnableVisualStyles();
-            using EventWindow windowRestorer = new EventWindow();
-            Application.Run(windowRestorer);
+            using EventWindow window = new EventWindow();
+            WindowRestorer.StartCapture();
+            Application.Run(window);
         }
     }
 }
