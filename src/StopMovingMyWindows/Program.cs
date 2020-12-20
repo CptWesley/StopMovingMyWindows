@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace StopMovingMyWindows
 {
@@ -10,9 +11,12 @@ namespace StopMovingMyWindows
         /// <summary>
         /// Defines the entry point of the application.
         /// </summary>
+        [STAThread]
         public static void Main()
         {
-            Console.WriteLine("Hello World!");
+            Application.EnableVisualStyles();
+            using EventWindow windowRestorer = new EventWindow();
+            Application.Run(windowRestorer);
         }
     }
 }
